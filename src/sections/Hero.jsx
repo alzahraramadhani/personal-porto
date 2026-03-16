@@ -15,7 +15,7 @@ const skills = [
 ];
 
 export const Hero = () => {
-    return <section id="dashboard" className="relative min-h-screen flex items-center overflow-hidden">
+    return <section id="dashboard" className="relative min-h-screen flex items-center overflow-hidden max-w-8xl mx-auto px-8 lg:px-12 z-10">
         {/* bg */}
         <div className="absolute inset-0">
             <img 
