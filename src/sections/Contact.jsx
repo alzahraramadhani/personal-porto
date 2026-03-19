@@ -1,5 +1,5 @@
 import { useState } from "react"; // 1. WAJIB DIIMPORT
-import { Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle, AlertCircle, Linkedin } from "lucide-react";
 import { Button } from "@/components/Button";
 import emailjs from "@emailjs/browser"
 
@@ -11,10 +11,10 @@ const contactInfo = [
         href: "mailto:alzahra.workhub@gmail.com",
     },
     {
-        icon: Phone,
-        label: "Phone",
-        value: "+62 856 0450 5503",
-        href: "tel:+6285604505503",
+        icon: Linkedin,
+        label: "LinkedIn",
+        value: "Al Zahra Ramadhani",
+        href: "https://www.linkedin.com/in/al-zahra-ramadhani",
     },
     {
         icon: MapPin,
@@ -58,6 +58,8 @@ export const Contact = () => {
                 message: formData.message,
             }, publicKey)
 
+            setFormData({ name: "", email: "", message: "" });
+
             setSubmitStatus({
                 type: "success",
                 message: "Message sent successfully! I'll get back to you soon.",
@@ -75,7 +77,7 @@ export const Contact = () => {
     };
 
     return (
-        <section id="contact" className="py-32 relative overflow-hidden bg-background max-w-8xl mx-auto px-8 lg:px-12 z-10">
+        <section id="contact" className="py-16 md:py-32 relative overflow-hidden bg-background">
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
                 <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-highlight/5 rounded-full blur-3xl"></div>
@@ -84,21 +86,21 @@ export const Contact = () => {
             <div className="container mx-auto px-6 relative z-10">
                 {/* Section Header */}
                 <div className="text-center mx-auto max-w-3xl mb-16">
-                    <span className="text-primary text-sm font-medium tracking-wider uppercase animate-fade-in">
+                    <span className="text-primary text-sm font-medium tracking-wider uppercase">
                         Get In Touch
                     </span>
-                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100">
+                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
                         Contact Me
                     </h2>
-                    <p className="text-muted-foreground animate-fade-in animation-delay-200">
+                    <p className="text-muted-foreground">
                         Have a project in mind atau just want to say hi? Feel free to reach out!
                     </p>
                 </div>
 
-                <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto w-full">
                     {/* Form Section */}
-                    <div className="glass p-8 rounded-3xl border border-primary/20 animate-fade-in animation-delay-300">
-                        <form onSubmit={handleSubmit} className="space-y-6" >
+                    <div className="glass p-6 md:p-8 rounded-3xl border border-primary/20 overflow-hidden">
+                        <form onSubmit={handleSubmit} className="space-y-5" >
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                                 <input
@@ -163,9 +165,9 @@ export const Contact = () => {
 
                     {/* Info Section */}
                     
-                    <div className="space-y-8 animate-fade-in animation-delay-400">
-                        <div className="glass p-8 rounded-3xl border border-primary/20 animate-fade-in animation-delay-300">
-                            <div className="grid gap-5">
+                    <div className="space-y-8">
+                        <div className="glass p-6 md:p-8 rounded-3xl border border-primary/20">
+                            <div className="grid gap-5 ">
                                 {contactInfo.map((info, idx) => (
                                 <a 
                                     key={idx} 
@@ -176,8 +178,8 @@ export const Contact = () => {
                                         <info.icon size={24} />
                                     </div>
                                     <div>
-                                        <p className="text-sm text-muted-foreground">{info.label}</p>
-                                        <p className="font-medium">{info.value}</p>
+                                        <p className="text-sm md:text-sm text-muted-foreground ">{info.label}</p>
+                                        <p className="font-medium truncate max-w-[185px] xs:max-w-[250px] md:max-w-none">{info.value}</p>
                                     </div>
                                 </a>
                                 ))}
@@ -194,7 +196,7 @@ export const Contact = () => {
                                 <span className="font-medium text-foreground">Currently Available</span>
                             </div>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                I'm currently open to new opportunities and exciting projects. Whether you need a full-time engineer or a freelance consultant, let's talk!
+                                I'm currently open to new opportunities and exciting projects. Whether you're looking for a part-time engineer or a freelance contributor, let's talk!
                             </p>
                         </div>
                     </div>

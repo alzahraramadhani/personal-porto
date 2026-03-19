@@ -19,14 +19,14 @@ const experiences = [
 
 export const Experience = () => {
     return (
-        <section id="experience" className="py-32 relative overflow-hidden max-w-8xl mx-auto px-8 lg:px-12 z-10">
+        <section id="experience" className="py-16 md:py-32 relative overflow-hidden">
             <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2"/>
             <div className="container mx-auto px-6 relative z-10">
                 {/* section header */}
                 <div className="text-center mx-auto max-w-3xl mb-16">
-                    <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">Career Journey</span>
-                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100">My Experience</h2>
-                    <p className="text-muted-foreground animate-fade-in animation-delay-200">My experience reflects my journey of growth. Through continuous learning, I constantly improve my skills to create better digital experiences.</p>
+                    <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">Growth Journey</span>
+                    <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">My Experience</h2>
+                    <p className="text-muted-foreground ">My experience reflects my journey of growth. Through continuous learning, I constantly improve my skills to create better digital experiences.</p>
                 </div>
                 {/* timeline */}
                 <div className="relative">
@@ -34,7 +34,7 @@ export const Experience = () => {
                     {/* experience items */}
                     <div className="space-y-12">
                         {experiences.map((exp, idx) => (
-                            <div key={idx} className="relative grid md:grid-cols-2 gap-8 animate-fade-in" style={{animationDelay: `${(idx + 1) * 150}ms`}}>
+                            <div key={idx} className="relative grid md:grid-cols-2 gap-8" style={{animationDelay: `${(idx + 1) * 150}ms`}}>
                                 {/* timeline dot */}
                                 <div className="absolute left-0 md:left-1/2 top-0 w-3 h-3 bg-primary rounded-full -translate-x-1/2 ring-4 ring-background">
                                     {exp.current && (<span className="absolute inset-0 rounded-full  bg-primary animate-ping opacity-75"/>)}

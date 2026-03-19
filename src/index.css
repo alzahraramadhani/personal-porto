@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  /* Hapus height: 100vh atau height: 100% jika ada */
+  margin: 0;
+  padding: 0;
+  /* Biarkan overflow diatur secara alami oleh konten */
+  overflow-x: hidden; 
+}
+
 @theme {
   --color-background: #0f1418;
   --color-foreground: #f0f2f5;
@@ -9,11 +21,13 @@
   --color-primary: #8F71FF;
   --color-primary-foreground: #ffffff;
 
+  --bg-gradient-primary: linear-gradient(to right, #6566F1, #9655F7);
+
   --color-secondary: #1f2830;
   --color-secondary-foreground: #8F71FF;
 
   --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
+  --color-muted-foreground: #8C98A8;
 
   --color-border: #242b32;
 
@@ -70,6 +84,39 @@
 }
 
 @layer utilities {
+  /* Status awal: tersembunyi, agak turun ke bawah, dan blur */
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(150px);
+    filter: blur(8px);
+
+    will-change: opacity, transform, filter;
+
+    transition: 
+      opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.8s ease-out;
+  }
+
+  /* Status saat muncul: normal */
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+
+  .text-gradient {
+    background-image: var(--bg-gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }  
+
+  .bg-gradient-primary {
+    background-image: var(--bg-gradient-primary);
+  } 
+
   @keyframes fade-in {
     from {
       opacity: 0;

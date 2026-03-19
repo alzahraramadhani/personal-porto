@@ -15,7 +15,7 @@ const skills = [
 ];
 
 export const Hero = () => {
-    return <section id="dashboard" className="relative min-h-screen flex items-center overflow-hidden max-w-8xl mx-auto px-8 lg:px-12 z-10">
+    return <section id="dashboard" className="relative min-h-screen flex items-center overflow-hidden">
         {/* bg */}
         <div className="absolute inset-0">
             <img 
@@ -30,6 +30,7 @@ export const Hero = () => {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {[...Array(30)].map((_, i) => (
                 <div 
+                key={i}
                 className="absolute w-1.5 h-1.5 rounded-full opacity-60"
                 style={{
                     backgroundColor: "#562D7D",
@@ -47,7 +48,6 @@ export const Hero = () => {
             <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* left column - text content */}
                 <div className="space-y-8">
-
                     <div className="animate-fade-in">
                         <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                             <span className="w-2 h-2 bg-primary rounded-full animate-pulse"/>UI/UX & Front-End Dev
@@ -69,8 +69,13 @@ export const Hero = () => {
 
                     {/* cta */}
                     <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-                        <Button size="lg">
-                            Contact Me <ArrowRight className="w-5 h-5" />
+                        <Button
+                        size="lg"
+                        onClick={() => {
+                            document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        >
+                        Contact Me <ArrowRight className="w-5 h-5" />
                         </Button>
 
                         <AnimatedBorderButton />
@@ -90,9 +95,9 @@ export const Hero = () => {
                         ))}
                     </div>
                 </div>
+
                 {/* right column - profile image */}
                 <div className="relative animate-fade-in animation-delay-300">
-                    {/* profile image */}
                     <div className="relative max-w-md mx-auto">
                         <div
                             className="absolute inset-0
@@ -110,11 +115,11 @@ export const Hero = () => {
             {/* Skills */}
             <div className="mt-20 animate-fade-in animation-delay-500">
                 <p className="text-sm text-muted-foreground mb-6 text-center">Tech Stack</p>
-                <div className="reletive overflow-hidden">
+                <div className="relative overflow-hidden">
                     <div className="flex animate-marquee">
-                        {[...skills, ...skills].map((skills, idx) => (
+                        {[...skills, ...skills].map((skill, idx) => (
                             <div key={idx} className="shrink-0 px-8 py-4" >
-                                <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">{skills}</span>
+                                <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">{skill}</span>
                             </div>
                         ))}
                     </div>

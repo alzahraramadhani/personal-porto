@@ -26,23 +26,23 @@ const projects = [
 
 export const Projects = () => {
     return (
-    <section id="projects" className="py-32 relative overflow-hidden max-w-8xl mx-auto px-8 lg:px-12 z-10">
+    <section id="projects" className="py-16 md:py-32 relative overflow-hidden">
         {/* bg glows */}
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-highlight/5 rounded-full blur-3xl"></div>
         <div className="container mx-auto px-6 relative z-10">
             {/* section header */}
             <div className="text-center mx-auto max-w-3xl mb-16">
-                <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">Featured work</span>
-                <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6 animate-fade-in animation-delay-100">My Projects</h2>
-                <p className="text-muted-foreground animate-fade-in animation-delay-200">A selection of my recent work focused on creating intuitive and meaningful digital experiences.</p>
+                <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase">Recent work</span>
+                <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-6">My Projects</h2>
+                <p className="text-muted-foreground">A selection of my recent work focused on creating intuitive and meaningful digital experiences.</p>
             </div>
             {/* project grid */}
             <div className="grid md:grid-cols-3 gap-8">
                 {projects.map((project, idx)=>(
                     <div 
                     key={idx} 
-                    className="group glass rounded-2xl overflow-hidden animate-fade-in md:row-span-1"
+                    className="group glass rounded-2xl overflow-hidden md:row-span-1"
                     style={{animationDelay: `&{(idx + 1) * 100}ms`}}>
                         {/* image */}
                         <div className="relative overflow-hidden aspect-video">

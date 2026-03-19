@@ -50,7 +50,14 @@ export const Navbar = () => {
 
             {/* CTA Button */}
             <div className="hidden md:flex">
-                <Button size = "sm">Contact Me</Button>
+                <Button
+                size="sm"
+                onClick={() => {
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                >
+                Contact Me
+                </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -58,7 +65,6 @@ export const Navbar = () => {
             className="md:hidden p-2 text-foreground cursor-pointer" 
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}>
                 {isMobileMenuOpen ? <X size={24} /> :<Menu size={24} />}
-
             </button>
         </nav>
         {/* Mobile Menu */}
@@ -76,7 +82,13 @@ export const Navbar = () => {
                         </a>
                     ))}
 
-                    <Button onClick={() => setIsMobileMenuOpen(false)} size = "sm">Contact Me</Button>
+                    <Button
+                    size="sm"
+                    onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    >Contact Me</Button>
                 </div>
             </div>
         )}
